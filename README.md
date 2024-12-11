@@ -1,14 +1,8 @@
 # Vector Addon
 
-> [!IMPORTANT]
-> **This project is no longer maintained.**<br/>
->
-> please don't ask for updates<br/>
-> you can create your own addons or mods using my modules<br/>
-> just give me some credit for them :)
-
-Vector is a powerful open-source addon for Meteor Client providing some combat and many utility modules. <br/>
-To install Vector correctly, place it in your mods folder along with Meteor Client.                      <br/>
+This is the vector addon but fixes minor bugs from original code<br/>
+And I'll sadly the old repo get archived, so I'll try my best to keep maintain this repo<br/>
+Feel free to give suggestions! Make the addon reborn!<br/>
 
 [![Discord embed](https://img.shields.io/discord/863813920892518461.svg?logo=discord&logoColor=FFFFFF&style=flat-square&label=Discord&colorA=606060&colorB=7289DA)](https://discord.gg/A3nYgbKeXR)
 [![Downloads embed](https://img.shields.io/github/downloads/cally72jhb/vector-addon/total.svg?style=flat-square&label=Downloads&colorA=606060&colorB=4FCF34)](https://github.com/cally72jhb/vector-addon/releases)
