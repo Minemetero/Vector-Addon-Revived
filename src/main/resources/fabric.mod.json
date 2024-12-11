@@ -3,14 +3,15 @@
     "id": "vector-addon",
     "version": "${version}",
 
-    "name": "Vector Addon",
+    "name": "Fixed Vector Addon",
     "description": "Vector is a powerful open-source addon for Meteor Client providing some combat and many utility modules.",
     "authors": [
-        "cally72jhb"
+        "cally72jhb",
+        "Minemetero"
     ],
     "contact": {
-        "issues": "https://github.com/cally72jhb/vector-addon/issues",
-        "sources": "https://github.com/cally72jhb/vector-addon"
+        "issues": "https://github.com/Minemetero/fixed-vector-addon/issues",
+        "sources": "https://github.com/cally72jhb/fixed-vector-addon"
     },
 
     "license": "GPL-3.0",
