@@ -15,7 +15,7 @@ public class ClientPlayNetworkHandlerMixin {
     private void onSend(GameStateChangeS2CPacket packet, CallbackInfo info) {
         AntiScreen screen = Modules.get().get(AntiScreen.class);
 
-        if (screen.isActive()
+        if (screen !=null && screen.isActive()
                 && packet.getReason() == GameStateChangeS2CPacket.DEMO_MESSAGE_SHOWN && packet.getValue() == 0.0F && screen.cancelDemoScreen()
                 || packet.getReason() == GameStateChangeS2CPacket.GAME_WON && screen.cancelEndScreen()) {
             info.cancel();

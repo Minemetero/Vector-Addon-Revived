@@ -11,7 +11,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class NetworkUtils {
-    @SuppressWarnings("UnstableApiUsage")
+    @SuppressWarnings(value = "UnstableApiUsage")
     public static JsonObject getJsonObject(String url) {
         try {
             JsonElement element = JsonParser.parseString(Resources.toString(new URL(url), StandardCharsets.UTF_8));
@@ -22,7 +22,7 @@ public class NetworkUtils {
         }
     }
 
-    @SuppressWarnings("UnstableApiUsage")
+    @SuppressWarnings(value = "UnstableApiUsage")
     public static JsonArray getJsonArray(String url) {
         try {
             JsonElement element = JsonParser.parseString(Resources.toString(new URL(url), StandardCharsets.UTF_8));

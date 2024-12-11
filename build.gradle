@@ -33,7 +33,7 @@ dependencies {
 }
 
 loom {
-	accessWidenerPath = file("src/main/resources/vector-addon.accesswidener")
+	accessWidenerPath.set(file("src/main/resources/vector-addon.accesswidener"))
 }
 
 processResources {

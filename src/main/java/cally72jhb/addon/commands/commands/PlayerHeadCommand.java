@@ -9,17 +9,20 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.exceptions.SimpleCommandExceptionType;
-import meteordevelopment.meteorclient.systems.commands.Command;
+import meteordevelopment.meteorclient.commands.Command;
 import net.minecraft.command.CommandSource;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
 
+import java.util.UUID;
 import java.util.Random;
-
-import static com.mojang.brigadier.Command.SINGLE_SUCCESS;
 
 public class PlayerHeadCommand extends Command {
     private final static SimpleCommandExceptionType NO_CREATIVE = new SimpleCommandExceptionType(Text.literal("You must be in creative mode to use this."));
@@ -70,11 +73,14 @@ public class PlayerHeadCommand extends Command {
                         if (array != null) {
                             if (amount > 1) stack.setCount(MathHelper.clamp(amount, 1, 64));
 
-                            stack.setNbt(StringNbtReader.parse(
-                                    "{SkullOwner:{Id:" + id + ",Properties:{textures:[{Value:\""
+                            // Create NbtCompound for the skull owner
+                            NbtCompound nbtData = StringNbtReader.parse(
+                                    "{Id:" + id + ",Properties:{textures:[{Value:\""
                                             + array.get("properties").getAsJsonArray().get(0).getAsJsonObject().get("value").getAsString()
-                                            + "\"}]}}}")
-                            );
+                                            + "\"}]}}");
+
+                            // Set the NBT data as a component
+                            stack.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbtData));
                         }
                     }
 
@@ -83,10 +89,10 @@ public class PlayerHeadCommand extends Command {
                     }
                 } catch (CommandSyntaxException exception) {
                     exception.printStackTrace();
-
-                    error("Not enough space in your inventory.");
+                    error("Failed to set NBT data.");
                 }
             });
         }
     }
+
 }
